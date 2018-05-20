@@ -32,9 +32,9 @@ overfeed it though or let it get too tired or it turns into a little gremlin!
 #### Notes:
   * Default age will always be 1.
   * Used builder pattern to construct class. http://www.informit.com/articles/article.aspx?p=1216151&seqNum=2
-  	* *This allowed me to create tests that I can easily change instance values without creating a complicated
-  	contstructor that would have to take a large amount of arguments. Instead, I can call the parameters I want
-  	to change by using method calls.*
+  	>This allowed me to create tests that I can easily change instance values without creating a complicated
+  	>contstructor that would have to take a large amount of arguments. Instead, I can call the parameters I want
+  	>to change by using method calls.*
 
 ## Features
 
@@ -53,43 +53,51 @@ overfeed it though or let it get too tired or it turns into a little gremlin!
 
   2. Methods
 
-
-    * - [ ] getWeight() - *over time, we all grow a little (until we reach a certain point in our life ;-))*
-
     * - [x] isHungry() - Boolean. If hunger > 0 == yes, it's hungry.
-    * - [x] setHunger() - Use to set hunger
+    * - [x] ~~setHunger() - Use to set hunger~~
     * - [x] feed() - *If it's hungry, you need to feed it!, and most likely it's going to get thirsty in the process.*
+
+
     * - [x] isThirsty() - Boolean. If thirst > 0 == yes, it's thirsty.
-    * - [x] setThirst() - Use to set thirst
+    * - [x] ~~setThirst() - Use to set thirst~~
     * - [x] water() - *Thirsty, give it something to drink!*
 
+
     * - [x] isPottyTime() - Boolean. If waste > 0 == yes, after eating/drinking it is inevitable.
-    * - [x] setWaste() - Use to set waste.
+    * - [x] ~~setWaste() - Use to set waste.~~
     * - [x] usePotty() - *after all that food and water, well, you know!*
 
+
     * - [x] isBored() - Boolean. If bored is > 0 == yes. Play time!
-    * - [x] setBoredom() - use to set boredom
+    * - [x] ~~setBoredom() - use to set boredom~~
     * - [x] play() - *when you're bored, play!*
 
+
     * - [x] isTired() - Boolean. If tired > 0 == yes. Rest time!
-    * - [x] setTired() - use to set tired
+    * - [x] ~~setTired() - use to set tired~~
     * - [x] rest() - *rest up little guy/gal.*
 
-    * - [x] isSick() - Boolean. If health < 100 == yes. rest or medicine.
-    * - [x] setHealth() - use to set health.
+
+    * - [x] isSick() - Boolean. If health < 100 == yes. rest or medicine. **If Health is less than zero - DIE**
+    * - [x] ~~setHealth() - use to set health.~~
     * - [x] medicine() - *If you're sick, sometimes you need some pharmaceuticals to get better!*
 
+
     * - [ ] getColor() - Generate random?
+      > Store color as an int? Random generate the color when creating a new Demegz.
     * - [ ] setColor() -
+
 
     * - [ ] getGender() - Generate random?
     * - [ ] setGender() - 
+
 
     * - [ ] getName() -
     * - [ ] setName() -
 
 
     * - [ ] tick() - 
+    * - [ ] getWeight() - *over time, we all grow a little (until we reach a certain point in our life ;-))*
 
 ### Stretch Tasks
   * - [ ] Give the pet the ability to take care of some of its own needs.

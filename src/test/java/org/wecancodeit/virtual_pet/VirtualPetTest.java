@@ -2,6 +2,7 @@ package org.wecancodeit.virtual_pet;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -150,7 +151,8 @@ public class VirtualPetTest {
 	@Test
 	public void whatColor() {
 		VirtualPet underTest = new VirtualPet.Builder().build();
-		String color = underTest.getColor();
-		assertTrue(color instanceof String);
+		int color = underTest.getColor();
+		System.out.println(color);
+		assertTrue(color >= 0 || color < 7);
 	}
 }

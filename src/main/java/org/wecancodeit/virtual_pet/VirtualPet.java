@@ -1,13 +1,22 @@
 package org.wecancodeit.virtual_pet;
 
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
 public class VirtualPet {
 	// instance variables
-	private int hunger;
-	private int thirst;
-	private int waste;
-	private int boredom;
-	private int tired;
-	private int health;
+	private int hunger;  // default set by builder
+	private int thirst;  // default set by builder
+	private int waste;   // default set by builder
+	private int boredom; // default set by builder
+	private int tired;   // default set by builder
+	private int health;  // default set by builder
+	private int color;   // default set by builder
+	private String name;
+	private int age = 1;
+	private int weight = 1;
+	private String[] colorArray = {"Red", "Orange", "Yellow",
+			   "Green", "Blue", "Purple"};
 	
 	// Builder Pattern
 	public static class Builder {
@@ -20,12 +29,9 @@ public class VirtualPet {
 		private int boredom = 0;
 		private int tired   = 0;
 		private int health  = 100; //100% healthy, 0% is dead!
-		private int color;
+		private int color = ThreadLocalRandom.current().nextInt(0,7); //new Random().nextInt(7);
 		private String gender;
-		private String name;
-		private int age = 1;
-		private int weight = 1;
-	
+		
 		public Builder hunger(int val) {
 			hunger = val;
 			return this;
@@ -56,6 +62,11 @@ public class VirtualPet {
 			return this;
 		}
 		
+		public Builder gender(String val) {
+			gender = val;
+			return this;
+		}
+		
 		public VirtualPet build() {
 			return new VirtualPet(this);
 		}
@@ -68,11 +79,12 @@ public class VirtualPet {
 		boredom = builder.boredom;
 		tired = builder.tired;
 		health = builder.health;
+		color = builder.color;
 	}
 
 	// getters and setters
-	public String getColor() { //When the pet is created, return random color.
-		return "color";
+	public int getColor() { 
+		return color;
 	}
 	
 	// methods
