@@ -152,7 +152,49 @@ public class VirtualPetTest {
 	public void whatColor() {
 		VirtualPet underTest = new VirtualPet.Builder().build();
 		int color = underTest.getColor();
-		System.out.println(color);
+		System.out.println(underTest.getColorArrayColor(color));
 		assertTrue(color >= 0 || color < 7);
+	}
+	
+	@Test
+	public void whatGender( ) {
+		VirtualPet underTest = new VirtualPet.Builder().build();
+		int gender = underTest.getGender();
+		if (gender == 0) {
+			System.out.println("It's a girl!");
+		} else {
+			System.out.println("It's a boy!");
+		}
+		assertTrue(gender == 0 || gender > 0);
+	}
+	
+	@Test
+	public void setNameAnthony() {
+		VirtualPet underTest = new VirtualPet.Builder().build();
+		String newName = underTest.setName("Anthony");
+		assertEquals(newName, "Anthony");
+	}
+	
+	@Test
+	public void checkNameAnthony() {
+		VirtualPet underTest = new VirtualPet.Builder().build();
+		underTest.setName("Anthony");
+		String testName = underTest.getName();
+		assertEquals(testName, "Anthony");
+	}
+	
+	@Test
+	public void checkWeightIs1() {
+		VirtualPet underTest = new VirtualPet.Builder().build();
+		int petWeight = underTest.getWeight();
+		assertEquals(petWeight, 1);
+	}
+	
+	@Test
+	public void setWeightCheckWeightIs2() {
+		VirtualPet underTest = new VirtualPet.Builder().build();
+		underTest.setWeight(2);
+		int petWeight = underTest.getWeight();
+		assertEquals(petWeight, 2);
 	}
 }

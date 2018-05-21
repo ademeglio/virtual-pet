@@ -83,21 +83,23 @@ overfeed it though or let it get too tired or it turns into a little gremlin!
     * - [x] medicine() - *If you're sick, sometimes you need some pharmaceuticals to get better!*
 
 
-    * - [ ] getColor() - Generate random?
-      > Store color as an int? Random generate the color when creating a new Demegz.
-    * - [ ] setColor() -
+    * - [x] getColor() - 
+      * - [X] Store color as an int? Random generate the color when creating a new Demegz.
+    * - [x] setColor() - ~Generate random?~ Color is randomly generated when object is created.
 
 
-    * - [ ] getGender() - Generate random?
-    * - [ ] setGender() - 
+    * - [x] getGender() - determines if the pet is a girl or boy by setting even random int as = 1 in the method
+    * - [x] ~setGender()~ - Generate random int when creating object.
 
 
-    * - [ ] getName() -
-    * - [ ] setName() -
+    * - [x] getName() -
+    * - [x] setName() - set the name of the pet
 
+
+    * - [x] getWeight() - *over time, we all grow a little (until we reach a certain point in our life ;-))*
+    * - [x] setWeight() 
 
     * - [ ] tick() - 
-    * - [ ] getWeight() - *over time, we all grow a little (until we reach a certain point in our life ;-))*
 
 ### Stretch Tasks
   * - [ ] Give the pet the ability to take care of some of its own needs.

@@ -4,6 +4,16 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class VirtualPet {
+	/*
+	 * WeCanCodeIT Module Project 2
+	 * by Anthony J. DeMeglio
+	 * 5/20/2018
+	 * 
+	 * VirtualPet()
+	 * 'Demegz' Virtual Pet
+	 * 
+	 */
+	
 	// instance variables
 	private int hunger;  // default set by builder
 	private int thirst;  // default set by builder
@@ -11,8 +21,9 @@ public class VirtualPet {
 	private int boredom; // default set by builder
 	private int tired;   // default set by builder
 	private int health;  // default set by builder
-	private int color;   // default set by builder
-	private String name;
+	private int color;   // default set by builder random
+	private int gender;  // default set by builder random
+	private String name; 
 	private int age = 1;
 	private int weight = 1;
 	private String[] colorArray = {"Red", "Orange", "Yellow",
@@ -20,6 +31,8 @@ public class VirtualPet {
 	
 	// Builder Pattern
 	public static class Builder {
+		Random randomNum = new Random(); // create instance of random class for gender
+		
 		// Required parameters - none
 		
 		// Optional parameters - initialized to default values
@@ -29,8 +42,8 @@ public class VirtualPet {
 		private int boredom = 0;
 		private int tired   = 0;
 		private int health  = 100; //100% healthy, 0% is dead!
-		private int color = ThreadLocalRandom.current().nextInt(0,7); //new Random().nextInt(7);
-		private String gender;
+		private int color = ThreadLocalRandom.current().nextInt(0,6); 
+		private int gender =  randomNum.nextInt(10);//new Random().nextInt(1);
 		
 		public Builder hunger(int val) {
 			hunger = val;
@@ -62,11 +75,6 @@ public class VirtualPet {
 			return this;
 		}
 		
-		public Builder gender(String val) {
-			gender = val;
-			return this;
-		}
-		
 		public VirtualPet build() {
 			return new VirtualPet(this);
 		}
@@ -80,11 +88,42 @@ public class VirtualPet {
 		tired = builder.tired;
 		health = builder.health;
 		color = builder.color;
+		gender = builder.gender;
 	}
 
 	// getters and setters
 	public int getColor() { 
 		return color;
+	}
+	
+	public String getColorArrayColor(int color) {
+		return colorArray[color];
+	}
+	
+	public int getGender() {
+		// Get Value then determine if it is even or odd
+		// even numbers equate to boy
+		if (gender % 2 == 0) {
+			return 1;
+		}
+		return 0;
+	}
+	
+	public String setName(String petName) {
+		this.name = petName;
+		return name;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public int getWeight() {
+		return weight;
+	}
+	
+	public void setWeight(int newWeight) {
+		this.weight = newWeight;
 	}
 	
 	// methods
@@ -161,6 +200,14 @@ public class VirtualPet {
 		// thirsty ++
 		// boredom ++
 	}
+
+
+
+
+
+
+
+
 
 
 	
