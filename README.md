@@ -99,6 +99,9 @@ overfeed it though or let it get too tired or it turns into a little gremlin!
     * - [x] getWeight() - *over time, we all grow a little (until we reach a certain point in our life ;-))*
     * - [x] setWeight() 
 
+    * - [x] getAge()
+    * - [x] setAge()
+
     * - [ ] tick() - 
 
 ### Stretch Tasks
@@ -107,3 +110,7 @@ overfeed it though or let it get too tired or it turns into a little gremlin!
   * - [ ] Assign favorite foods to your pet, and add a parameter specifying the type of food to the medod you use to feed your pet.
   Your pet should react accordingly. You could also decide which food it does not like.
   * - [ ] create unit tests!
+
+#### My own stretch tasks
+  * - [ ] validate userName; petName;
+  * - [ ] refactor gender setting. Maybe that gets converted to a string in the getGender() method.

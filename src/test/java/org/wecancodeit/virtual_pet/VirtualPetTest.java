@@ -197,4 +197,27 @@ public class VirtualPetTest {
 		int petWeight = underTest.getWeight();
 		assertEquals(petWeight, 2);
 	}
+	
+	@Test
+	public void getAgeCheck() {
+		VirtualPet underTest = new VirtualPet.Builder().build();
+		int petAge = underTest.getAge();
+		assertEquals(petAge, 1);
+	}
+	
+	@Test
+	public void setAge2Check() {
+		VirtualPet underTest = new VirtualPet.Builder().build();
+		underTest.setAge(2);
+		int petAge = underTest.getAge();
+		assertEquals(petAge, 2);
+	}
+	
+	@Test
+	public void convertToHerHisPrepTestShe() {
+		VirtualPet underTest = new VirtualPet.Builder().build();
+		String petGender = "She";
+		String petGenderHisHer = underTest.convertToHerHis(petGender);
+		assertEquals(petGenderHisHer, "Her");
+	}
 }

@@ -43,7 +43,7 @@ public class VirtualPet {
 		private int tired   = 0;
 		private int health  = 100; //100% healthy, 0% is dead!
 		private int color = ThreadLocalRandom.current().nextInt(0,6); 
-		private int gender =  randomNum.nextInt(10);//new Random().nextInt(1);
+		private int gender =  randomNum.nextInt(10);
 		
 		public Builder hunger(int val) {
 			hunger = val;
@@ -92,6 +92,7 @@ public class VirtualPet {
 	}
 
 	// getters and setters
+	
 	public int getColor() { 
 		return color;
 	}
@@ -124,6 +125,14 @@ public class VirtualPet {
 	
 	public void setWeight(int newWeight) {
 		this.weight = newWeight;
+	}
+	
+	public int getAge() {
+		return age;
+	}
+	
+	public void setAge(int newAge) {
+		this.age = newAge;
 	}
 	
 	// methods
@@ -190,8 +199,7 @@ public class VirtualPet {
 	}
 
 	public void medicine(int medicine) {
-		this.health += medicine;
-		
+		this.health += medicine;	
 	}
 	
 	public void tick() {
@@ -200,6 +208,21 @@ public class VirtualPet {
 		// thirsty ++
 		// boredom ++
 	}
+
+	public String convertToHerHis(String petGender) {
+		String petGenderHisHer;
+		if (petGender.toLowerCase().equals("she")) {
+			petGenderHisHer = "Her";
+			return petGenderHisHer;
+		} else
+		petGenderHisHer = "His";
+		return petGenderHisHer;
+	}
+
+
+
+
+
 
 
 
