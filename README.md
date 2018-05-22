@@ -10,10 +10,10 @@ WeCanCodeIT Module 2 Project
     * - [x] Create at least three instance variables (aka attributes aka properties aka fields).
     * - [x] Create at least three methods (messages you send to your pet).
   * VirtualPetApp class
-    * - [ ] Create a `main` method that...
+    * - [X] Create a `main` method that...
       * - [x] implements a *game loop*.
       * - [x] asks for user input.
-      * - [ ] writes output to the console.
+      * - [x] writes output to the console.
 
 ### About my pet
 
@@ -116,7 +116,9 @@ overfeed it though or let it get too tired or it turns into a little gremlin!
     * - [x] Ask user to name their pet.
     * - [ ] Interact with pet
       * - [ ] Pet Status
+        * I'm having trouble with the test for this. It doesn't seem to update properly.
       * - [x] Do Menu
+      * - [ ] Pet Revised status?
 
 ### Stretch Tasks
   * - [ ] Give the pet the ability to take care of some of its own needs.

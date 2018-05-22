@@ -33,7 +33,11 @@ public class VirtualPetTest {
 	@Test
 	public void feedPetStillHungryCheck() {
 		VirtualPet underTest = new VirtualPet.Builder().hunger(1).build();
+		//String petStatus = underTest.petStatus();
+		//System.out.println("Initial:\n" + petStatus);
 		underTest.feed(1);
+		//petStatus = underTest.petStatus();
+		//System.out.println("After feeding:\n" + petStatus);
 		boolean isHungry = underTest.isHungry();
 		assertFalse(isHungry);
 	}
@@ -229,14 +233,34 @@ public class VirtualPetTest {
 		underTest.setPetName("Foo");
 		String petStatus = underTest.petStatus();
 		//System.out.println("Testing Pet Status Gender: " + underTest.getGenderString());
-		assertEquals(petStatus, "Is hungry! Please feed her. "
-				+ "Is thirsty! Please give her some water. "
-				+ "It's time to go potty! "
-				+ "Is pretty bored. It must be play time! "
-				+ "Yawn... " + underTest.getPetName() + " looks pretty sleepy."
-				+ underTest.getPetName() + " isn't looking to good :-(");
+		//System.out.println(petStatus);
+		assertEquals(petStatus, "\t\t\tHungry! Please feed her. (" + underTest.getHunger() + ")"
+				+ "\n\t\t\tThirsty! Please give her some water. "
+				+ "\n\t\t\tIt's time to go potty! "
+				+ "\n\t\t\tPretty bored. It must be play time! "
+				+ "\n\t\t\t\"Yawn...\" " + underTest.getPetName() + " looks pretty sleepy."
+				+ "\n\t\t\t" + underTest.getPetName() + " isn't looking too good.");
 	}
 	
+	@Test
+	public void getHunger5() {
+		VirtualPet underTest = new VirtualPet.Builder().hunger(5).build();
+		int petHunger = underTest.getHunger();
+		assertEquals(petHunger, 5);
+	}
 	
+	@Test
+	public void getHunger4() {
+		VirtualPet underTest2 = new VirtualPet.Builder().hunger(1).thirst(1).waste(1)
+				.tired(1).health(99).boredom(1).gender(3).build();
+		underTest2.setPetName("Foo");
+		String petStatus = underTest2.petStatus();
+		System.out.println("Initial:\n" + petStatus);
+		int petHunger = underTest2.getHunger();
+		underTest2.feed(1);
+		int petHunger2 = underTest2.getHunger();
+		System.out.println("After Feeding:\n" + petStatus);
+		assertEquals(petHunger - 1, petHunger2);
+	}
 	
 }

@@ -42,7 +42,7 @@ public class VirtualPet {
 		private int waste   = 0;
 		private int boredom = 0;
 		private int tired   = 0;
-		private int health  = 100; //100% healthy, 0% is dead!
+		private int health  = 10; //100% healthy, 0% is dead!
 		private int color = ThreadLocalRandom.current().nextInt(0,6); 
 		private int gender =  randomNum.nextInt(10);
 		
@@ -135,6 +135,10 @@ public class VirtualPet {
 	
 	public int getAge() {
 		return age;
+	}
+	
+	public int getHunger() {
+		return hunger;
 	}
 	
 	// setters
@@ -243,40 +247,42 @@ public class VirtualPet {
 	
 	public String petStatus() {
 		//variables
-		String hungry = "";
-		String thirsty = "";
-		String potty = "";
-		String bored = "";
-		String tired = "";
-		String sick = "";
+		String feelingHungry = "";
+		String feelingThirsty = "";
+		String feelingPotty = "";
+		String feelingBored = "";
+		String feelingTired = "";
+		String feelingSick = "";
 		
 		// check if hungry
-		if (this.isBored()) {
-			hungry = "Is hungry! Please feed "+ this.convertToHerHis(getGenderString(), true).toLowerCase()
-					+ ". ";
+		if (this.isHungry()) {
+			feelingHungry = "\t\t\tHungry! Please feed "+ this.convertToHerHis(getGenderString(), true).toLowerCase()
+					+ ". (" + this.getHunger() + ")";
 		}
 		// check if thirsty
 		if (this.isThirsty()) {
-			thirsty = "Is thirsty! Please give " + this.convertToHerHis(getGenderString(), true).toLowerCase()
+			feelingThirsty = "\n\t\t\tThirsty! Please give " + this.convertToHerHis(getGenderString(), true).toLowerCase()
 					+ " some water. ";
 		}
 		// check if it's time to potty
 		if (this.isPottyTime()) {
-			potty = "It's time to go potty! ";
+			feelingPotty = "\n\t\t\tIt's time to go potty! ";
 		}
 		// check if bored
 		if (this.isBored()) {
-			bored = "Is pretty bored. It must be play time! ";
+			feelingBored = "\n\t\t\tPretty bored. It must be play time! ";
 		}
 		// check if tired
 		if (this.isTired()) {
-			tired = "Yawn... " + this.getPetName() + " looks pretty sleepy.";
+			feelingTired = "\n\t\t\t\"Yawn...\" " + this.getPetName() + " looks pretty sleepy.";
 		}
 		// check if sick
 		if (this.isSick()) {
-			sick = this.getPetName() + " isn't looking to good :-(";
+			feelingSick = "\n\t\t\t" + this.getPetName() + " isn't looking too good.";
 		}
+		String petStatus = feelingHungry + feelingThirsty + feelingPotty
+						   + feelingBored + feelingTired + feelingSick;
 		
-		return hungry + thirsty + potty + bored + tired + sick;
+		return petStatus;
 	}
 }
