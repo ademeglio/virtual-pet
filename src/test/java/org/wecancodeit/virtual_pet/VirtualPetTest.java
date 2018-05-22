@@ -214,17 +214,27 @@ public class VirtualPetTest {
 	}
 	
 	@Test
-	public void convertToHerHisPrepTestShe() {
+	public void convertToHerHisPrepTestSheToHer() {
 		VirtualPet underTest = new VirtualPet.Builder().build();
 		String petGender = "She";
-		String petGenderHisHer = underTest.convertToHerHis(petGender);
+		String petGenderHisHer = underTest.convertToHerHis(petGender, false);
 		assertEquals(petGenderHisHer, "Her");
 	}
 	
 	@Test
 	public void testPetStatus() {
-		VirtualPet underTest = new VirtualPet.Builder().build();
-		String petStatus = underTest.petStatus();
-		assertEquals(petStatus, "TBD");
+		VirtualPet underTest = new VirtualPet.Builder().hunger(1).thirst(1).waste(1)
+				.tired(1).health(99).boredom(1).build();
+		underTest.setName("Foo");
+		String petStatus = VirtualPetApp.PetStatus(underTest);
+		assertEquals(petStatus, "Is hungry! Please feed him/her. "
+				+ "Is thirsty! Please give him/her some water. "
+				+ "It's time to go potty! "
+				+ "Is pretty bored. It must be play time! "
+				+ "Yawn... " + underTest.getName() + " looks pretty sleepy."
+				+ underTest.getName() + " isn't looking to good :-(");
 	}
+	
+	
+	
 }

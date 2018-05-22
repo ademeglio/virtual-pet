@@ -209,13 +209,23 @@ public class VirtualPet {
 		// boredom ++
 	}
 
-	public String convertToHerHis(String petGender) {
+	public String convertToHerHis(String petGender, Boolean obectiveCaseVal) {
 		String petGenderHisHer;
+		boolean objectiveCase = obectiveCaseVal;
 		if (petGender.toLowerCase().equals("she")) {
-			petGenderHisHer = "Her";
+			if (objectiveCase) {
+				petGenderHisHer = "Hers";
+			}else {
+				petGenderHisHer = "Her";
+			}
 			return petGenderHisHer;
-		} else
-		petGenderHisHer = "His";
+		} else {
+			if (objectiveCase) {
+				petGenderHisHer = "Him";
+			} else {
+			petGenderHisHer = "His";
+			}
+		}
 		return petGenderHisHer;
 	}
 	
@@ -223,26 +233,6 @@ public class VirtualPet {
 		String petStatus = "";
 		
 		return petStatus;
-	}
+	}	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-	
-
-
-
-	
 }
