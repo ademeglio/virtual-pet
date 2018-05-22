@@ -40,25 +40,26 @@ public class VirtualPetApp {
 		petColor = petDemegz.getColorArrayColor(petDemegz.getColor());
 		
 		// Introductions
-		System.out.println("Virtual-Pet: DeMegz\nPlease Enter you Name:"); //scan user name
+		System.out.println("Virtual-Pet: DeMegz\nPlease Enter Your Name:"); //scan user name
 		userName = userInput.nextLine();
 		System.out.println("Hello "  + userName + ", let me introduce you to " 
 				+ "your new pet DeMegz!\n" + petGender + "'s a wonderful little "
 				+ petColor.toLowerCase() + " creature for you to take "
-				+ "special care\nof, but first, " + petGender.toLowerCase() + " needs a name! "
+				+ "special\ncare of, but first, " + petGender.toLowerCase() + " needs a name! "
 				+ petGenderHisHer + " name is...");
 		petName = petDemegz.setName(userInput.nextLine());
 		System.out.println(petName + " is a great name!");
 		System.out.println("Make sure you take special care of " + petName + "."
-				+ " Remember to feed, water, and potty " + petName + "."
-				+ "\nOf course, don't forget to play with " + petName + ", " + petGender.toLowerCase()
-				+ " can get bored to death! Be sure to rest up after play so " + petGender.toLowerCase()
-				+ "\ndoesn't get sick! Have fun " + userName + "!");
+				+ " Remember to feed,\nwater, and potty " + petName + "."
+				+ "\n\nOf course, don't forget to play with " + petName + ", " + petGender.toLowerCase()
+				+ " can get bored\nto death! Be sure to rest up after play so " + petGender.toLowerCase()
+				+ " doesn't get sick!\nHave fun " + userName + "!\n");
 		
 		// Game Loop
 		while (true) {
 			// TODO Display current pet stats
-			System.out.println(petName + " is currently feeling...");
+			System.out.println(petName + " is currently feeling...\n");
+			System.out.println("***** STATUS HERE*****\n");
 			
 			// Display the menu
 			System.out.println(userName + ", what would you like to do with " + petName + "?");
@@ -75,6 +76,7 @@ public class VirtualPetApp {
 			
 			// Take actions based on choice
 			case "1": // feed the pet
+				petDemegz.feed(1);
 				break;
 			case "2": // water the pet
 				break;
