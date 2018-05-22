@@ -11,8 +11,8 @@ WeCanCodeIT Module 2 Project
     * - [x] Create at least three methods (messages you send to your pet).
   * VirtualPetApp class
     * - [ ] Create a `main` method that...
-      * - [ ] implements a *game loop*.
-      * - [ ] asks for user input.
+      * - [x] implements a *game loop*.
+      * - [x] asks for user input.
       * - [ ] writes output to the console.
 
 ### About my pet
@@ -104,7 +104,7 @@ overfeed it though or let it get too tired or it turns into a little gremlin!
 
     * - [x] convertToHerHis(String petGender) she converts to Her & he converts to his.
 
-    * - [ ] petStatus() easy way to call the current status of the pet.
+    * - [ ] petStatus() easy way to call the current status of the pet. **<<WIP>>**
     * - [ ] tick() - 
 
   3. App Plan
@@ -116,7 +116,7 @@ overfeed it though or let it get too tired or it turns into a little gremlin!
     * - [x] Ask user to name their pet.
     * - [ ] Interact with pet
       * - [ ] Pet Status
-      * - [ ] Do Menu
+      * - [x] Do Menu
 
 ### Stretch Tasks
   * - [ ] Give the pet the ability to take care of some of its own needs.

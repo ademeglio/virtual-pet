@@ -152,7 +152,7 @@ public class VirtualPetTest {
 	public void whatColor() {
 		VirtualPet underTest = new VirtualPet.Builder().build();
 		int color = underTest.getColor();
-		System.out.println(underTest.getColorArrayColor(color));
+		//System.out.println(underTest.getColorArrayColor(color));
 		assertTrue(color >= 0 || color < 7);
 	}
 	
@@ -161,25 +161,26 @@ public class VirtualPetTest {
 		VirtualPet underTest = new VirtualPet.Builder().build();
 		int gender = underTest.getGender();
 		if (gender == 0) {
-			System.out.println("It's a girl!");
+			//System.out.println("It's a girl!");
 		} else {
-			System.out.println("It's a boy!");
+			//System.out.println("It's a boy!");
 		}
 		assertTrue(gender == 0 || gender > 0);
 	}
 	
 	@Test
-	public void setNameAnthony() {
+	public void setPetNameAnthony() {
 		VirtualPet underTest = new VirtualPet.Builder().build();
-		String newName = underTest.setName("Anthony");
+		underTest.setPetName("Anthony");
+		String newName = underTest.getPetName();
 		assertEquals(newName, "Anthony");
 	}
 	
 	@Test
 	public void checkNameAnthony() {
 		VirtualPet underTest = new VirtualPet.Builder().build();
-		underTest.setName("Anthony");
-		String testName = underTest.getName();
+		underTest.setPetName("Anthony");
+		String testName = underTest.getPetName();
 		assertEquals(testName, "Anthony");
 	}
 	
@@ -224,15 +225,16 @@ public class VirtualPetTest {
 	@Test
 	public void testPetStatus() {
 		VirtualPet underTest = new VirtualPet.Builder().hunger(1).thirst(1).waste(1)
-				.tired(1).health(99).boredom(1).build();
-		underTest.setName("Foo");
-		String petStatus = VirtualPetApp.PetStatus(underTest);
-		assertEquals(petStatus, "Is hungry! Please feed him/her. "
-				+ "Is thirsty! Please give him/her some water. "
+				.tired(1).health(99).boredom(1).gender(3).build();
+		underTest.setPetName("Foo");
+		String petStatus = underTest.petStatus();
+		//System.out.println("Testing Pet Status Gender: " + underTest.getGenderString());
+		assertEquals(petStatus, "Is hungry! Please feed her. "
+				+ "Is thirsty! Please give her some water. "
 				+ "It's time to go potty! "
 				+ "Is pretty bored. It must be play time! "
-				+ "Yawn... " + underTest.getName() + " looks pretty sleepy."
-				+ underTest.getName() + " isn't looking to good :-(");
+				+ "Yawn... " + underTest.getPetName() + " looks pretty sleepy."
+				+ underTest.getPetName() + " isn't looking to good :-(");
 	}
 	
 	

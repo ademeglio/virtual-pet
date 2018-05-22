@@ -32,25 +32,23 @@ public class VirtualPetApp {
 		// TODO Determine if I want to setup different values for parameters.
 		
 		VirtualPet petDemegz = new VirtualPet.Builder().hunger(1).boredom(1).build(); // create the pet
-		if (petDemegz.getGender() == 0) { // get gender
-			petGender = "She";
-		} else {
-			petGender = "He";
-		}
 		
+		petGender = petDemegz.getGenderString();
 		petGenderHisHer = petDemegz.convertToHerHis(petGender, false);
 		petGenderHimHers = petDemegz.convertToHerHis(petGender, true);
+		
 		petColor = petDemegz.getColorArrayColor(petDemegz.getColor());
 		
 // Introductions
-		System.out.println("Virtual-Pet: DeMegz\nPlease Enter Your Name:"); //scan user name
+		System.out.println("Your Virtual-Pet DeMegz\nPlease Enter Your Name:"); //scan user name
 		userName = userInput.nextLine();
 		System.out.println("Hello "  + userName + ", let me introduce you to " 
 				+ "your new pet DeMegz!\n" + petGender + "'s a wonderful little "
 				+ petColor.toLowerCase() + " creature for you to take "
 				+ "special\ncare of, but first, " + petGender.toLowerCase() + " needs a name! "
 				+ petGenderHisHer + " name is...");
-		petName = petDemegz.setName(userInput.nextLine());
+		petDemegz.setPetName(userInput.nextLine());
+		petName = petDemegz.getPetName();
 		System.out.println(petName + " is a great name!");
 		System.out.println("Make sure you take special care of " + petName + "."
 				+ " Remember to feed,\nwater, and potty " + petName + "."
@@ -63,9 +61,9 @@ public class VirtualPetApp {
 			
 			// TODO Display current pet status
 			
-			System.out.println(petName + " is currently feeling...\n");
+			System.out.println("<< " + petName + " is currently feeling... >>\n");
 			
-			System.out.println(PetStatus(petDemegz));
+			System.out.println(petDemegz.petStatus());
 			
 			// Display the menu
 			System.out.println("\n" + userName + ", what would you like to do with " + petName + "?");
@@ -107,43 +105,6 @@ public class VirtualPetApp {
 			petDemegz.tick();
 		}
 		
-	}
-	
-	public static String PetStatus(VirtualPet petDemegz) {
-		//variables
-		String hungry = "";
-		String thirsty = "";
-		String potty = "";
-		String bored = "";
-		String tired = "";
-		String sick = "";
-		
-		// check if hungry
-		if (petDemegz.isBored()) {
-			hungry = "Is hungry! Please feed him/her. ";
-		}
-		// check if thirsty
-		if (petDemegz.isThirsty()) {
-			thirsty = "Is thirsty! Please give him/her some water. ";
-		}
-		// check if it's time to potty
-		if (petDemegz.isPottyTime()) {
-			potty = "It's time to go potty! ";
-		}
-		// check if bored
-		if (petDemegz.isBored()) {
-			bored = "Is pretty bored. It must be play time! ";
-		}
-		// check if tired
-		if (petDemegz.isTired()) {
-			tired = "Yawn... " + petDemegz.getName() + " looks pretty sleepy.";
-		}
-		// check if sick
-		if (petDemegz.isSick()) {
-			sick = petDemegz.getName() + " isn't looking to good :-(";
-		}
-		
-		return hungry + thirsty + potty + bored + tired + sick;
 	}
 
 } // END

@@ -28,6 +28,7 @@ public class VirtualPet {
 	private int weight = 1;
 	private String[] colorArray = {"Red", "Orange", "Yellow",
 			   "Green", "Blue", "Purple"};
+	private String petGenderString; 
 	
 	// Builder Pattern
 	public static class Builder {
@@ -75,6 +76,11 @@ public class VirtualPet {
 			return this;
 		}
 		
+		public Builder gender(int val) {
+			gender = val;
+			return this;
+		}
+		
 		public VirtualPet build() {
 			return new VirtualPet(this);
 		}
@@ -91,7 +97,7 @@ public class VirtualPet {
 		gender = builder.gender;
 	}
 
-	// getters and setters
+	// getters
 	
 	public int getColor() { 
 		return color;
@@ -107,15 +113,19 @@ public class VirtualPet {
 		if (gender % 2 == 0) {
 			return 1;
 		}
-		return 0;
+		return 0; 
 	}
 	
-	public String setName(String petName) {
-		this.name = petName;
-		return name;
+	public String getGenderString( ) {
+		if (this.getGender() == 0) { // get gender
+			petGenderString = "She";
+		} else {
+			petGenderString = "He";
+		}
+		return petGenderString;
 	}
 	
-	public String getName() {
+	public String getPetName() {
 		return name;
 	}
 	
@@ -123,12 +133,18 @@ public class VirtualPet {
 		return weight;
 	}
 	
-	public void setWeight(int newWeight) {
-		this.weight = newWeight;
-	}
-	
 	public int getAge() {
 		return age;
+	}
+	
+	// setters
+	
+	public void setPetName(String petName) {
+		this.name = petName;
+	}
+	
+	public void setWeight(int newWeight) {
+		this.weight = newWeight;
 	}
 	
 	public void setAge(int newAge) {
@@ -209,15 +225,11 @@ public class VirtualPet {
 		// boredom ++
 	}
 
-	public String convertToHerHis(String petGender, Boolean obectiveCaseVal) {
+	public String convertToHerHis(String petGenderString, Boolean obectiveCaseVal) {
 		String petGenderHisHer;
 		boolean objectiveCase = obectiveCaseVal;
-		if (petGender.toLowerCase().equals("she")) {
-			if (objectiveCase) {
-				petGenderHisHer = "Hers";
-			}else {
-				petGenderHisHer = "Her";
-			}
+		if (petGenderString.toLowerCase().equals("she")) {
+			petGenderHisHer = "Her";
 			return petGenderHisHer;
 		} else {
 			if (objectiveCase) {
@@ -230,9 +242,41 @@ public class VirtualPet {
 	}
 	
 	public String petStatus() {
-		String petStatus = "";
+		//variables
+		String hungry = "";
+		String thirsty = "";
+		String potty = "";
+		String bored = "";
+		String tired = "";
+		String sick = "";
 		
-		return petStatus;
-	}	
-
+		// check if hungry
+		if (this.isBored()) {
+			hungry = "Is hungry! Please feed "+ this.convertToHerHis(getGenderString(), true).toLowerCase()
+					+ ". ";
+		}
+		// check if thirsty
+		if (this.isThirsty()) {
+			thirsty = "Is thirsty! Please give " + this.convertToHerHis(getGenderString(), true).toLowerCase()
+					+ " some water. ";
+		}
+		// check if it's time to potty
+		if (this.isPottyTime()) {
+			potty = "It's time to go potty! ";
+		}
+		// check if bored
+		if (this.isBored()) {
+			bored = "Is pretty bored. It must be play time! ";
+		}
+		// check if tired
+		if (this.isTired()) {
+			tired = "Yawn... " + this.getPetName() + " looks pretty sleepy.";
+		}
+		// check if sick
+		if (this.isSick()) {
+			sick = this.getPetName() + " isn't looking to good :-(";
+		}
+		
+		return hungry + thirsty + potty + bored + tired + sick;
+	}
 }
