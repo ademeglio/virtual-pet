@@ -141,6 +141,22 @@ public class VirtualPet {
 		return hunger;
 	}
 	
+	public int getThirst() {
+		return thirst;
+	}
+	
+	public int getWaste() {
+		return waste;
+	}
+	
+	public int getTired() {
+		return tired;
+	}
+	
+	public int getHealth() {
+		return health;
+	}
+	
 	// setters
 	
 	public void setPetName(String petName) {
@@ -285,4 +301,6 @@ public class VirtualPet {
 		
 		return petStatus;
 	}
+
+	
 }
