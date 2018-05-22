@@ -28,25 +28,25 @@ public class VirtualPetApp {
 		// Create VirtualPet Object and set default variables.
 		// TODO Determine if I want to setup different values for parameters.
 		
-		VirtualPet demegz = new VirtualPet.Builder().build(); // create the pet
-		if (demegz.getGender() == 0) { // get gender
+		VirtualPet petDemegz = new VirtualPet.Builder().build(); // create the pet
+		if (petDemegz.getGender() == 0) { // get gender
 			petGender = "She";
 		} else {
 			petGender = "He";
 		}
 		
-		petGenderHisHer = demegz.convertToHerHis(petGender);
-		petColor = demegz.getColorArrayColor(demegz.getColor());
+		petGenderHisHer = petDemegz.convertToHerHis(petGender);
+		petColor = petDemegz.getColorArrayColor(petDemegz.getColor());
 		
 		// Introductions
-		System.out.println("Virtual-Pet: DeMegz\nPlease Enter you Name:");
+		System.out.println("Virtual-Pet: DeMegz\nPlease Enter you Name:"); //scan user name
 		userName = userInput.nextLine();
 		System.out.println("Hello "  + userName + ", let me introduce you to " 
 				+ "your new pet DeMegz!\n" + petGender + "'s a wonderful little "
 				+ petColor.toLowerCase() + " creature for you to take "
 				+ "special care\nof, but first," + petGender.toLowerCase() + " needs a name! "
 				+ petGenderHisHer + " name is...");
-		petName = demegz.setName(userInput.nextLine());
+		petName = petDemegz.setName(userInput.nextLine());
 		System.out.println(petName + " is a great name!");
 		System.out.println("Make sure you take special care of " + petName + "."
 				+ " Remember to feed, water, and potty " + petName + "."

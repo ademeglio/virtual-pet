@@ -220,4 +220,11 @@ public class VirtualPetTest {
 		String petGenderHisHer = underTest.convertToHerHis(petGender);
 		assertEquals(petGenderHisHer, "Her");
 	}
+	
+	@Test
+	public void testPetStatus() {
+		VirtualPet underTest = new VirtualPet.Builder().build();
+		String petStatus = underTest.petStatus();
+		assertEquals(petStatus, "TBD");
+	}
 }

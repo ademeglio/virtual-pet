@@ -102,7 +102,21 @@ overfeed it though or let it get too tired or it turns into a little gremlin!
     * - [x] getAge()
     * - [x] setAge()
 
+    * - [x] convertToHerHis(String petGender) she converts to Her & he converts to his.
+
+    * - [ ] petStatus() easy way to call the current status of the pet.
     * - [ ] tick() - 
+
+  3. App Plan
+    * - [x] Initiate virtual pet object
+      * - [ ] Set Initial values?
+    * - [x] Game Begins. Accept User Name for personalized feedback.
+    * - [x] Welcome user and introduce user to their new pet DeMegz.
+      * - [x] randomly sets gender and color. feedback will automatically use She or He and convert to Her or His.
+    * - [x] Ask user to name their pet.
+    * - [ ] Interact with pet
+      * - [ ] Pet Status
+      * - [ ] Do Menu
 
 ### Stretch Tasks
   * - [ ] Give the pet the ability to take care of some of its own needs.

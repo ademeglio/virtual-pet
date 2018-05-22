@@ -218,6 +218,12 @@ public class VirtualPet {
 		petGenderHisHer = "His";
 		return petGenderHisHer;
 	}
+	
+	public String petStatus() {
+		String petStatus = "";
+		
+		return petStatus;
+	}
 
 
 
