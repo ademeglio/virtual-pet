@@ -20,7 +20,7 @@ public class VirtualPetApp {
 // Variables
 		String userName;
 		String petGender;
-		String petGenderHisHer;  // She == Her or He == His
+//		String petGenderHisHer;  // She == Her or He == His
 		String petGenderHimHer; // She == Her or He == Him
 		String petColor;
 		String petName;
@@ -29,12 +29,12 @@ public class VirtualPetApp {
 		Scanner userInput = new Scanner(System.in); // user input scanner	
 		
 // Create VirtualPet Object and set default variables.
-		// TODO Determine if I want to setup different values for parameters.
+
 		
-		VirtualPet petDemegz = new VirtualPet.Builder().hunger(1).thirst(1).waste(0).boredom(1).tired(0).health(10).build(); // create the pet
+		VirtualPet petDemegz = new VirtualPet.Builder().build(); // create the pet
 		
 		petGender = petDemegz.getGenderString();
-		petGenderHisHer = petDemegz.convertToHerHis(petGender, false);
+//		petGenderHisHer = petDemegz.convertToHerHis(petGender, false);
 		petGenderHimHer = petDemegz.convertToHerHis(petGender, true);
 		
 		petColor = petDemegz.getColorArrayColor(petDemegz.getColor());
@@ -43,22 +43,22 @@ public class VirtualPetApp {
 		System.out.println("Your Virtual-Pet DeMegz\nPlease Enter Your Name:"); //scan user name
 		userName = userInput.nextLine();
 		System.out.println("Hello "  + userName + ", let me introduce you to " 
-				+ "your new pet DeMegz!\n" + petGender + "'s a wonderful little "
+				+ "your new rare pet creature called a DeMegz!\n" + petGender + "'s a wonderful little "
 				+ petColor.toLowerCase() + " creature for you to take "
 				+ "special\ncare of, but first, " + petGender.toLowerCase() + " needs a name! "
-				+ petGenderHisHer + " name is...");
+				+ "What do you want to call " + petGenderHimHer.toLowerCase() + "?");
 		petDemegz.setPetName(userInput.nextLine());
 		petName = petDemegz.getPetName();
-		System.out.println(petName + " is a great name!\n");
-		System.out.println("Make sure you take special care of " + petName + "."
+		System.out.println();
+		System.out.print(petName + " is a great name! Make sure you take special care of " + petName + "."
 				+ " Remember to feed,\nwater, and potty " + petGenderHimHer.toLowerCase() + "."
-				+ "\n\nOf course, don't forget to play with " + petName + ", we don't want " + petGenderHimHer.toLowerCase()
-				+ " to get bored\nto death! Be sure to rest up after play so " + petGender.toLowerCase()
-				+ " doesn't get sick!\n\nHave fun " + userName + " & " + petName + "!");
+				+ " Of course, don't forget to play with " + petName + ", we don't want " + petGenderHimHer.toLowerCase()
+				+ " \nto get bored to death! Be sure to rest up after play so " + petGender.toLowerCase()
+				+ " doesn't get sick!\n\nHave fun " + userName + " & " + petName + "! ");
 		
 // Display initial pet status
 		
-			System.out.println(petName + " is currently........");
+			System.out.print(petName + " is currently........\n");
 			System.out.println(petDemegz.petStatus());
 
 		
@@ -67,12 +67,13 @@ public class VirtualPetApp {
 			
 			
 	// Display the menu
+			System.out.println("-----------------------------------------------------------------------");
 			System.out.println("\n" + userName + ", what would you like to do with " + petName + "?");
 					
-			System.out.println(" 1. Play       5. Check On " + petName + "\n"
-					         + " 2. Feed       6. Rest\n"
-					         + " 3. Water      7. Give " + petGenderHimHer + " medicine\n"
-					         + " 4. Potty      8. EXIT GAME");
+			System.out.println(" 1. Play        \n"
+					         + " 2. Feed       5. Rest\n"
+					         + " 3. Water      6. Give " + petGenderHimHer + " medicine\n"
+					         + " 4. Potty      7. EXIT GAME");
 			System.out.println("Select an option above...");
 			userAction = userInput.nextLine();
 			
@@ -80,7 +81,13 @@ public class VirtualPetApp {
 			switch (userAction) {
 			
 			case "1": 
-				petDemegz.play(1);				
+				petDemegz.play(1);
+				if (petDemegz.getBored() > 0) {
+					System.out.println(petName + " is looking pretty bored still.");
+				} else {
+					System.out.println("That was some intense play, someone looks like they may need a nap!");
+					petDemegz.setTired(1);
+				}
 				break;
 			
 			case "2": // feed the pet
@@ -113,12 +120,7 @@ public class VirtualPetApp {
 				}
 				break;
 			
-			case "5": // get status
-				System.out.println(petName + " is currently........");
-				System.out.println(petDemegz.petStatus());
-				break;
-			
-			case "6": // rest for the pet
+			case "5": // rest for the pet
 				petDemegz.rest(1);
 				petDemegz.medicine(1);
 				if (petDemegz.getTired() > 0) {
@@ -128,7 +130,7 @@ public class VirtualPetApp {
 				}
 				break;
 			
-			case "7": // give pet medicine
+			case "6": // give pet medicine
 				petDemegz.medicine(1);
 				if (petDemegz.getHealth() < 10) {
 					System.out.println(petName + " is looking a little better. Maybe some rest or more medicine?");
@@ -137,7 +139,7 @@ public class VirtualPetApp {
 				}
 				break;
 			
-			case "8": // exit game
+			case "7": // exit game
 				userInput.close();
 				System.out.println("Thank you for playing!");
 				System.exit(0);
@@ -146,8 +148,10 @@ public class VirtualPetApp {
 				System.out.println("Please Try again, choose a number between 1 - 7\n");
 				continue;
 			}
-
 			
+			System.out.println("-----------------------------------------------------------------------");
+			System.out.println(petName + " is now currently........");
+			System.out.println(petDemegz.petStatus());
 			
 // call tick method to represent the passage of time.
 			petDemegz.tick();

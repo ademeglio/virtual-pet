@@ -6,11 +6,11 @@ WeCanCodeIT Module 2 Project
 ## Required Tasks
 
   * VirtualPet class
-    * - [ ] Creat a `tick()` method that represent the passage of time.
+    * - [x] Creat a `tick()` method that represent the passage of time.
     * - [x] Create at least three instance variables (aka attributes aka properties aka fields).
     * - [x] Create at least three methods (messages you send to your pet).
   * VirtualPetApp class
-    * - [X] Create a `main` method that...
+    * - [x] Create a `main` method that...
       * - [x] implements a *game loop*.
       * - [x] asks for user input.
       * - [x] writes output to the console.
@@ -59,26 +59,31 @@ overfeed it though or let it get too tired or it turns into a little gremlin!
 
 
     * - [x] isThirsty() - Boolean. If thirst > 0 == yes, it's thirsty.
+    * - [x] getThirst() 
     * - [x] ~~setThirst() - Use to set thirst~~
     * - [x] water() - *Thirsty, give it something to drink!*
 
 
     * - [x] isPottyTime() - Boolean. If waste > 0 == yes, after eating/drinking it is inevitable.
+    * - [x] getWaste()
     * - [x] ~~setWaste() - Use to set waste.~~
     * - [x] usePotty() - *after all that food and water, well, you know!*
 
 
     * - [x] isBored() - Boolean. If bored is > 0 == yes. Play time!
+
     * - [x] ~~setBoredom() - use to set boredom~~
     * - [x] play() - *when you're bored, play!*
 
 
     * - [x] isTired() - Boolean. If tired > 0 == yes. Rest time!
+    * - [x] getTired()
     * - [x] ~~setTired() - use to set tired~~
     * - [x] rest() - *rest up little guy/gal.*
 
 
     * - [x] isSick() - Boolean. If health < 100 == yes. rest or medicine. **If Health is less than zero - DIE**
+    * - [x] getHealth
     * - [x] ~~setHealth() - use to set health.~~
     * - [x] medicine() - *If you're sick, sometimes you need some pharmaceuticals to get better!*
 
@@ -104,21 +109,21 @@ overfeed it though or let it get too tired or it turns into a little gremlin!
 
     * - [x] convertToHerHis(String petGender) she converts to Her & he converts to his.
 
-    * - [ ] petStatus() easy way to call the current status of the pet. **<<WIP>>**
-    * - [ ] tick() - 
+    * - [x] petStatus() easy way to call the current status of the pet. **<<WIP>>**
+    * - [x] tick() - 
 
   3. App Plan
     * - [x] Initiate virtual pet object
-      * - [ ] Set Initial values?
+      * - [x] Set Initial values? *I updated the defauls in VirtualPet()*
     * - [x] Game Begins. Accept User Name for personalized feedback.
     * - [x] Welcome user and introduce user to their new pet DeMegz.
       * - [x] randomly sets gender and color. feedback will automatically use She or He and convert to Her or His.
     * - [x] Ask user to name their pet.
-    * - [ ] Interact with pet
-      * - [ ] Pet Status
+    * - [x] Interact with pet
+      * - [x] Pet Status
         * I'm having trouble with the test for this. It doesn't seem to update properly.
       * - [x] Do Menu
-      * - [ ] Pet Revised status?
+      * - [x] Pet Revised status?
 
 ### Stretch Tasks
   * - [ ] Give the pet the ability to take care of some of its own needs.
@@ -129,4 +134,4 @@ overfeed it though or let it get too tired or it turns into a little gremlin!
 
 #### My own stretch tasks
   * - [ ] validate userName; petName;
-  * - [ ] refactor gender setting. Maybe that gets converted to a string in the getGender() method.
+  * - [x] refactor gender setting. Maybe that gets converted to a string in the getGender() method.

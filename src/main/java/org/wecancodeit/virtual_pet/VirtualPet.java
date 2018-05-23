@@ -29,6 +29,7 @@ public class VirtualPet {
 	private String[] colorArray = {"Red", "Orange", "Yellow",
 			   "Green", "Blue", "Purple"};
 	private String petGenderString; 
+	private int tickCount = 0;
 	
 	// Builder Pattern
 	public static class Builder {
@@ -40,7 +41,7 @@ public class VirtualPet {
 		private int hunger  = 0;
 		private int thirst  = 0;
 		private int waste   = 0;
-		private int boredom = 0;
+		private int boredom = 2;
 		private int tired   = 0;
 		private int health  = 10; //100% healthy, 0% is dead!
 		private int color = ThreadLocalRandom.current().nextInt(0,6); 
@@ -157,8 +158,18 @@ public class VirtualPet {
 		return health;
 	}
 	
-	// setters
+	public int getBored() {
+		return boredom;
+	}
 	
+	public int getTickCount() {
+		return tickCount;
+	}
+
+	// setters
+	public void setTired(int newTired) {
+		this.tired = newTired;
+	}
 	public void setPetName(String petName) {
 		this.name = petName;
 	}
@@ -169,6 +180,10 @@ public class VirtualPet {
 	
 	public void setAge(int newAge) {
 		this.age = newAge;
+	}
+	
+	public void setTickCount(int tickCount) {
+		this.tickCount = tickCount;
 	}
 	
 	// methods
@@ -228,7 +243,7 @@ public class VirtualPet {
 	}
 
 	public boolean isSick() {
-		if (health < 100) {
+		if (health < 10) {
 			return true;
 		}
 		return false;
@@ -236,13 +251,6 @@ public class VirtualPet {
 
 	public void medicine(int medicine) {
 		this.health += medicine;	
-	}
-	
-	public void tick() {
-		//what happens every x minutes.
-		// hunger ++
-		// thirsty ++
-		// boredom ++
 	}
 
 	public String convertToHerHis(String petGenderString, Boolean obectiveCaseVal) {
@@ -272,8 +280,8 @@ public class VirtualPet {
 		
 		// check if hungry
 		if (this.isHungry()) {
-			feelingHungry = "\t\t\tHungry! Please feed "+ this.convertToHerHis(getGenderString(), true).toLowerCase()
-					+ ". (" + this.getHunger() + ")";
+			feelingHungry = "\t\t\tHungry! Please feed "+ this.convertToHerHis(getGenderString(), true).toLowerCase();
+			
 		}
 		// check if thirsty
 		if (this.isThirsty()) {
@@ -301,6 +309,40 @@ public class VirtualPet {
 		
 		return petStatus;
 	}
+		
+	public void tick() {
+
+		this.hunger = ThreadLocalRandom.current().nextInt(0, 10);
+		if (this.hunger > 2) {
+			this.thirst = ThreadLocalRandom.current().nextInt(1, 5); // if you're hungry, you must be thirsty
+		}
+		if (this.hunger > 5 || this.thirst > 5) {
+			this.waste = 1;
+		}
+		if (this.boredom > 5) {
+			this.tired = ThreadLocalRandom.current().nextInt(5, 10);
+		}
+		if (this.health < 8) {
+			this.tired = 10;
+		} else if (this.health <= 0) {
+			System.out.println("Oh no! " + this.getPetName() + " is dead!");
+			System.out.println("You had one job! GAME OVER!");
+			System.exit(0);
+		}
+		
+		if (tickCount == 3) { // age the pet every three passes.
+			this.age++;
+			System.out.println("\nHAPPY BIRTHDAY TO " + this.getPetName() 
+					+ "! " + this.getGenderString().toUpperCase() + " JUST TURNED " 
+					+ this.getAge() + " YEARS OLD IN DEMEGZ YEARS!");
+			this.setTickCount(0);
+		}
+		this.tickCount++;
+
+	}
+
+
+
 
 	
 }
