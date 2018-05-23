@@ -133,5 +133,5 @@ overfeed it though or let it get too tired or it turns into a little gremlin!
   * - [ ] create unit tests!
 
 #### My own stretch tasks
-  * - [ ] validate userName; petName;
+  * - [x] validate userName; petName;
   * - [x] refactor gender setting. Maybe that gets converted to a string in the getGender() method.

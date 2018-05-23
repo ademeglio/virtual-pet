@@ -7,7 +7,7 @@ public class VirtualPet {
 	/*
 	 * WeCanCodeIT Module Project 2
 	 * by Anthony J. DeMeglio
-	 * 5/20/2018
+	 * 5/23/2018
 	 * 
 	 * VirtualPet()
 	 * 'Demegz' Virtual Pet

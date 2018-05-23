@@ -7,7 +7,7 @@ public class VirtualPetApp {
 	/*
 	 * WeCanCodeIT Module Project 2
 	 * by Anthony J. DeMeglio
-	 * 5/20/2018
+	 * 5/23/2018
 	 * 
 	 * VirtualPetApp()
 	 * 'Demegz' Virtual Pet
@@ -27,27 +27,27 @@ public class VirtualPetApp {
 		String userAction = "0";
 		
 		Scanner userInput = new Scanner(System.in); // user input scanner	
+		QuestionAsker asker = new QuestionAsker(userInput);
 		
 // Create VirtualPet Object and set default variables.
 
 		
 		VirtualPet petDemegz = new VirtualPet.Builder().build(); // create the pet
 		
+		// message context
 		petGender = petDemegz.getGenderString();
 //		petGenderHisHer = petDemegz.convertToHerHis(petGender, false);
 		petGenderHimHer = petDemegz.convertToHerHis(petGender, true);
-		
 		petColor = petDemegz.getColorArrayColor(petDemegz.getColor());
 		
 // Introductions
-		System.out.println("Your Virtual-Pet DeMegz\nPlease Enter Your Name:"); //scan user name
-		userName = userInput.nextLine();
+		userName = asker.verifyString("Your Virtual-Pet DeMegz\nPlease Enter Your Name:"); //scan user name
 		System.out.println("Hello "  + userName + ", let me introduce you to " 
 				+ "your new rare pet creature called a DeMegz!\n" + petGender + "'s a wonderful little "
 				+ petColor.toLowerCase() + " creature for you to take "
-				+ "special\ncare of, but first, " + petGender.toLowerCase() + " needs a name! "
-				+ "What do you want to call " + petGenderHimHer.toLowerCase() + "?");
-		petDemegz.setPetName(userInput.nextLine());
+				+ "special\ncare of, but first, " + petGender.toLowerCase() + " needs a name! ");
+		petDemegz.setPetName(asker.verifyString("What do you want to call " 
+				+ petGenderHimHer.toLowerCase() + "?"));
 		petName = petDemegz.getPetName();
 		System.out.println();
 		System.out.print(petName + " is a great name! Make sure you take special care of " + petName + "."
